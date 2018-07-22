@@ -13,7 +13,7 @@ buildscript {
 }
 
 plugins {
-    id 'net.ltgt.apt' version '0.9'
+    id 'net.ltgt.apt' version '0.18'
 }
 
 apply plugin: 'java'
@@ -38,4 +38,8 @@ dependencies {
 	compile("com.h2database:h2")
 	compile "org.mapstruct:mapstruct-jdk8:${mapstructVersion}", "org.projectlombok:lombok:${lombokVersion}"
     apt "org.mapstruct:mapstruct-processor:${mapstructVersion}", "org.projectlombok:lombok:${lombokVersion}"
+}
+
+compileJava {
+	options.annotationProcessorGeneratedSourcesDirectory = file("$projectDir/.apt_generated")
 }
