@@ -1,12 +1,9 @@
 package com.reylibutan.astroswof.schedule.api.dto;
 
-import java.sql.Date;
-
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.format.annotation.DateTimeFormat.ISO;
+import com.reylibutan.astroswof.schedule.api.validation.ValidDate;
 
 import lombok.Data;
 
@@ -19,12 +16,10 @@ public class ScheduleDto {
 	private String name;
 
 	@NotNull
-	// TODO create a DateValidator since @DateTimeFormat is only for formatting
-	// purposes only
-	@DateTimeFormat(iso = ISO.DATE)
-	private Date fromDate;
+	@ValidDate
+	private String fromDate;
 
-	@DateTimeFormat(iso = ISO.DATE)
-	private Date toDate;
+	@ValidDate
+	private String toDate;
 
 }
