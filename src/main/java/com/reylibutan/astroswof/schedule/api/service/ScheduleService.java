@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.reylibutan.astroswof.schedule.api.common.CommonMapper;
 import com.reylibutan.astroswof.schedule.api.dto.ScheduleDto;
+import com.reylibutan.astroswof.schedule.api.entity.Schedule;
 import com.reylibutan.astroswof.schedule.api.repository.ScheduleRepository;
 
 @Service
@@ -24,7 +25,11 @@ public class ScheduleService {
 
 	@Transactional
 	public ScheduleDto create(ScheduleDto schedDto) {
-		return null;
+		Schedule sched = mapper.scheduleDtoToSchedule(schedDto);
+		schedRepo.save(sched);
+		schedDto.setId(sched.getId());
+
+		return schedDto;
 	}
 
 }

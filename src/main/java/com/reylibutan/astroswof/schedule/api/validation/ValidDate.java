@@ -15,7 +15,7 @@ import javax.validation.Payload;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ValidDate {
 
-	String message() default "Schedule date format should be " + ValidDateValidator.DATE_FORMAT;
+	String message() default "Schedule date format should be " + ValidDateValidator.VALID_DATE_FORMAT;
 
 	Class<?>[] groups() default {};
 
